@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Job Tracker - Job Application Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            💼 Job Tracker
+        </div>
+
+        <div class="nav-links">
+            <a href="#dashboard">Dashboard</a>
+            <a href="#applications">Applications</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="container">
+
+        <!-- Welcome Section -->
+        <section class="welcome" id="dashboard">
+
+            <div>
+                <p class="small-title">YOUR CAREER DASHBOARD</p>
+
+                <h1>
+                    Track your job applications
+                    <span>easily.</span>
+                </h1>
+
+                <p class="description">
+                    Keep all your job applications organized in one place
+                    and never lose track of an opportunity.
+                </p>
+            </div>
+
+            <button class="add-button" onclick="openForm()">
+                + Add Application
+            </button>
+
+        </section>
+
+        <!-- Statistics -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <div class="stat-icon">📋</div>
+
+                <div>
+                    <p>Total Applications</p>
+                    <h2 id="totalApplications">0</h2>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">⏳</div>
+
+                <div>
+                    <p>Applied</p>
+                    <h2 id="appliedCount">0</h2>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+
+                <div>
+                    <p>Interviews</p>
+                    <h2 id="interviewCount">0</h2>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🎉</div>
+
+                <div>
+                    <p>Selected</p>
+                    <h2 id="selectedCount">0</h2>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Applications Section -->
+        <section class="applications" id="applications">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>My Applications</h2>
+
+                    <p>
+                        Keep track of your career opportunities.
+                    </p>
+                </div>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="🔍 Search company or role..."
+                    onkeyup="searchApplications()"
+                >
+
+            </div>
+
+            <!-- Application Cards -->
+            <div id="applicationList">
+
+                <div class="empty-state" id="emptyState">
+
+                    <div class="empty-icon">
+                        💼
+                    </div>
+
+                    <h3>No applications yet</h3>
+
+                    <p>
+                        Start tracking your job applications by
+                        clicking the button above.
+                    </p>
+
+                    <button onclick="openForm()">
+                        + Add Your First Application
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Add Application Modal -->
+    <div class="modal" id="applicationModal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <div>
+                    <h2>Add Job Application</h2>
+
+                    <p>
+                        Enter the details of the job you applied for.
+                    </p>
+                </div>
+
+                <button class="close-button" onclick="closeForm()">
+                    ×
+                </button>
+
+            </div>
+
+            <!-- Application Form -->
+            <form id="applicationForm">
+
+                <div class="form-group">
+
+                    <label for="company">
+                        Company Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="company"
+                        placeholder="e.g. Google"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="role">
+                        Job Role
+                    </label>
+
+                    <input
+                        type="text"
+                        id="role"
+                        placeholder="e.g. Frontend Developer"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="date">
+                            Application Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="date"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="status">
+                            Status
+                        </label>
+
+                        <select id="status">
+
+                            <option value="Applied">
+                                Applied
+                            </option>
+
+                            <option value="Interview">
+                                Interview
+                            </option>
+
+                            <option value="Selected">
+                                Selected
+                            </option>
+
+                            <option value="Rejected">
+                                Rejected
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="location">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="e.g. Mumbai / Remote"
+                    >
+
+                </div>
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-button"
+                        onclick="closeForm()"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="save-button"
+                    >
+                        Save Application
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
